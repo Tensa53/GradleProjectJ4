@@ -1,0 +1,44 @@
+{
+  "org.example.utente.personale.TecnicoTest" : {
+    "testGetProfession" : 0.0,
+    "testGetName" : 0.0,
+    "testGetCode" : 0.001,
+    "testSetSurname" : 0.0,
+    "overallTestSuiteExecution" : 0.041,
+    "testSetProfession" : 0.0,
+    "testGetSurname" : 0.001,
+    "testSetName" : 0.0,
+    "testSetCode" : 0.0
+  },
+  "org.example.utente.UtenteTest" : {
+    "testGetTelephone" : 0.001,
+    "testGetName" : 0.001,
+    "testGetAddress" : 0.0,
+    "testSetSurname" : 0.0,
+    "overallTestSuiteExecution" : 0.187,
+    "testGetContoBancario" : 0.084,
+    "testSetContoBancario" : 0.0,
+    "testGetSurname" : 0.001,
+    "testSetName" : 0.001
+  },
+  "org.example.utente.personale.AmministratoreTest" : {
+    "testGetName" : 0.0,
+    "testGetDepartment" : 0.002,
+    "testSetDepartment" : 0.0,
+    "testSetSurname" : 0.0,
+    "overallTestSuiteExecution" : 0.031,
+    "testGetSurname" : 0.0,
+    "testSetName" : 0.0
+  },
+  "org.example.banca.ContoBancarioTest" : {
+    "testGetId" : 0.0,
+    "testVersamento" : 0.001,
+    "testSetId" : 0.0,
+    "testGetSaldo" : 0.0,
+    "testSetSaldo2" : 0.001,
+    "overallTestSuiteExecution" : 0.768,
+    "testPrelievo_InsufficienteSaldo" : 0.018,
+    "testSetSaldo" : 0.0,
+    "testPrelievo_SufficienteSaldo" : 0.0
+  }
+}

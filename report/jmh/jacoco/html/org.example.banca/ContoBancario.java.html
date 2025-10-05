@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContoBancario.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GradleProjectJ4</a> &gt; <a href="index.source.html" class="el_package">org.example.banca</a> &gt; <span class="el_source">ContoBancario.java</span></div><h1>ContoBancario.java</h1><pre class="source lang-java linenums">package org.example.banca;
+
+public class ContoBancario {
+<span class="fc" id="L4">    public ContoBancario(String idz, int saldo_iniziale) {</span>
+<span class="fc" id="L5">        this.id = idz;</span>
+<span class="fc" id="L6">        this.saldo = saldo_iniziale;</span>
+<span class="fc" id="L7">    }</span>
+
+    public String getId() {
+<span class="fc" id="L10">        return id;</span>
+    }
+
+    public int getSaldo() {
+<span class="fc" id="L14">        return saldo;</span>
+    }
+
+    public void setId(String id) {
+<span class="fc" id="L18">        this.id = id;</span>
+<span class="fc" id="L19">    }</span>
+
+    public void setSaldo(int saldo) {
+<span class="fc" id="L22">        this.saldo = saldo;</span>
+<span class="fc" id="L23">    }</span>
+
+    public void setSaldo2(int saldo) {
+<span class="fc" id="L26">        this.saldo = saldo;</span>
+<span class="fc" id="L27">    }</span>
+
+    public void versamento(int quota) {
+<span class="fc" id="L30">        this.saldo += quota;</span>
+<span class="fc" id="L31">    }</span>
+
+    public int prelievo(int quota) {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (this.saldo &lt; quota)</span>
+<span class="fc" id="L35">            return 0;</span>
+        else
+<span class="fc" id="L37">            this.saldo -= quota;</span>
+<span class="fc" id="L38">        return 1;</span>
+    }
+
+    private String id;
+    private int saldo;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
