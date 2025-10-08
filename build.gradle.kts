@@ -91,8 +91,8 @@ tasks.register<JacocoReport>("jacocoExternalReport") {
         xml.required.set(true)
         html.required.set(true)
         csv.required.set(false)
-        xml.outputLocation.set(file("report/jmh/jacoco/jacocoTestReport.xml"))
-        html.outputLocation.set(file("report/jmh/jacoco/html"))
+        xml.outputLocation.set(file("reports-coverage/jmh/jacoco/jacocoTestReport.xml"))
+        html.outputLocation.set(file("reports-coverage/jmh/jacoco/html"))
     }
 }
 
@@ -101,7 +101,7 @@ val executionTimes by tasks.registering(JavaExec::class) {
     description = "Extract execution times from test results XML"
     classpath = sourceSets.main.get().runtimeClasspath
     mainClass.set("org.example.runners.SurefireXMLExecutionTimes")
-    args("build/test-results/test/", "report/junit/times.json")
+    args("build/test-results/test/", "reports-time/junit/times.json")
 }
 
 val uncoveredMethods by tasks.registering(JavaExec::class) {
@@ -110,5 +110,5 @@ val uncoveredMethods by tasks.registering(JavaExec::class) {
     description = "Extract uncovered methods from JaCoCo XML report"
     classpath = sourceSets.main.get().runtimeClasspath
     mainClass.set("org.example.runners.JaCoCoXMLUncoveredMethods")
-    args("build/reports/jacoco/test/jacocoTestReport.xml", "report/junit/uncovered.json")
+    args("build/reports/jacoco/test/jacocoTestReport.xml", "reports-coverage/junit/uncovered.json")
 }

@@ -21,7 +21,7 @@ public class JaCoCoListener extends RunListener {
     @Override
     public void testFinished(Description description) throws Exception {
         System.out.println("Finished: " + getTestRun(description.getDisplayName()) + description.getMethodName());
-        updateCoverageMatrix(description.getMethodName(), description.getClassName(), "report/junit/", "build/jacoco/test.exec", "build/classes/java/main");
+        updateCoverageMatrix(description.getMethodName(), description.getClassName(), "reports-coverage/junit/", "build/jacoco/test.exec", "build/classes/java/main");
     }
 
     private String getTestRun(String displayName) {
