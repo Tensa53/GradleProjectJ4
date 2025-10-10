@@ -16,27 +16,34 @@ public class AverageSingleShotTime {
     public static void main(String[] args) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
+        System.out.println(args[0]);
+
+        //the directory where are saved the jmh results
         File dir = new File(args[0]);
+        //the file where you want to save the report
         String outputPath = args[1];
 
         File[] subDirs = dir.listFiles();
 
         for (File subDir : subDirs) {
-            for (File file : subDir.listFiles()) {
-                JsonNode jsonNode =  objectMapper.readTree(file);
+            if (subDir.isDirectory()) {
+                for (File file : subDir.listFiles()) {
+                    JsonNode jsonNode =  objectMapper.readTree(file);
 
-                if (jsonNode.get(1) != null){
-                    for(JsonNode arrayNode : jsonNode) {
-                        writeJMHTimes(arrayNode);
+                    if (jsonNode.get(1) != null){
+                        for(JsonNode arrayNode : jsonNode) {
+                            writeJMHTimes(arrayNode);
+                        }
+                    } else {
+                        writeJMHTimes(jsonNode.get(0));
                     }
-                } else {
-                    writeJMHTimes(jsonNode.get(0));
                 }
+
             }
         }
 
-        System.out.println(map);
-        System.out.println(map.size());
+//        System.out.println(map);
+//        System.out.println(map.size());
 
         ObjectMapper objectMapper2 = new ObjectMapper();
         objectMapper2.writerWithDefaultPrettyPrinter().writeValue(new FileWriter(outputPath), map);

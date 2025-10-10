@@ -42,6 +42,26 @@ public class JaCoCoProfiler implements InternalProfiler {
             String className = benchmarkFqn.substring(0, lastDot);
             String methodName = benchmarkFqn.substring(lastDot + 1);
 
+            if (!benchmarkParams.getParamsKeys().isEmpty()) {
+                StringBuilder params = new StringBuilder();
+                params.append("#");
+                for (String key : benchmarkParams.getParamsKeys()) {
+                    String param = key + "=" + benchmarkParams.getParam(key);
+                    params.append(param);
+                    params.append("_");
+                }
+
+                int lastUnderscore = params.lastIndexOf("_");
+
+                if (lastUnderscore != -1) {
+                    String pam = params.substring(0, lastUnderscore);
+                    methodName = methodName + pam;
+                } else {
+                    methodName = methodName + params;
+                }
+
+            }
+
             JaCoCoCoverageMatrix.updateCoverageMatrix(methodName, className, "reports-coverage/jmh/", "build/jacoco/bench.exec", "build/classes/java/main");
         }
 

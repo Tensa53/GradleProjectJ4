@@ -22,9 +22,27 @@ public class ContoBancarioBenchmark {
 
     }
 
+    @State(Scope.Thread)
+    public static class MyParameterState {
+
+        @Setup(Level.Invocation)
+        public void doSetup() {
+            contoBancario = new ContoBancario("123", 100);
+        }
+
+        public ContoBancario contoBancario;
+
+        @Param({"50","100","150","200"})
+        public int quota;
+
+        @Param({"123","456","789"})
+        public String id;
+
+    }
+
     @Benchmark
-    public void benchVersamento(MyState myState) {
-        myState.contoBancario.versamento(50);
+    public void benchVersamento(MyParameterState myParameterState) {
+        myParameterState.contoBancario.versamento(50);
     }
 
     @Benchmark
@@ -43,8 +61,8 @@ public class ContoBancarioBenchmark {
     }
 
     @Benchmark
-    public void benchSetId(MyState myState) {
-        myState.contoBancario.setId("456");
+    public void benchSetId(MyParameterState myParameterState) {
+        myParameterState.contoBancario.setId("456");
     }
 
     @Benchmark
