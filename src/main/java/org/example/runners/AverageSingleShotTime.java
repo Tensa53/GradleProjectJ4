@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class AverageSingleShotTime {
@@ -95,5 +95,5 @@ public class AverageSingleShotTime {
         map.put(benchName.toString(), average);
     }
 
-    private  static Map<String, BigDecimal> map = new HashMap<>();
+    private  static Map<String, BigDecimal> map = new LinkedHashMap<>();
 }
