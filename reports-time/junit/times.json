@@ -1,44 +1,44 @@
 {
   "org.example.utente.personale.TecnicoTest" : {
     "testGetProfession" : 0.001,
-    "testGetName" : 0.001,
-    "testGetCode" : 0.001,
-    "testSetSurname" : 0.001,
-    "overallTestSuiteExecution" : 0.102,
-    "testSetProfession" : 0.001,
-    "testGetSurname" : 0.003,
+    "testGetName" : 0.0,
+    "testGetCode" : 0.0,
+    "testSetSurname" : 0.0,
+    "overallTestSuiteExecution" : 0.04,
+    "testSetProfession" : 0.0,
+    "testGetSurname" : 0.001,
     "testSetName" : 0.0,
-    "testSetCode" : 0.001
+    "testSetCode" : 0.0
   },
   "org.example.utente.UtenteTest" : {
     "testGetTelephone" : 0.001,
     "testGetName" : 0.001,
-    "testGetAddress" : 0.001,
-    "testSetSurname" : 0.001,
-    "overallTestSuiteExecution" : 0.353,
-    "testGetContoBancario" : 0.163,
-    "testSetContoBancario" : 0.001,
-    "testGetSurname" : 0.0,
-    "testSetName" : 0.001
+    "testGetAddress" : 0.0,
+    "testSetSurname" : 0.0,
+    "overallTestSuiteExecution" : 0.164,
+    "testGetContoBancario" : 0.067,
+    "testSetContoBancario" : 0.0,
+    "testGetSurname" : 0.001,
+    "testSetName" : 0.0
   },
   "org.example.utente.personale.AmministratoreTest" : {
-    "testGetName" : 0.001,
-    "testGetDepartment" : 0.002,
+    "testGetName" : 0.0,
+    "testGetDepartment" : 0.001,
     "testSetDepartment" : 0.001,
     "testSetSurname" : 0.0,
-    "overallTestSuiteExecution" : 0.076,
-    "testGetSurname" : 0.001,
-    "testSetName" : 0.001
+    "overallTestSuiteExecution" : 0.028,
+    "testGetSurname" : 0.0,
+    "testSetName" : 0.0
   },
   "org.example.banca.ContoBancarioTest" : {
-    "testGetId" : 0.0,
+    "testGetId" : 0.001,
     "testVersamento" : 0.001,
-    "testSetId" : 0.001,
-    "testGetSaldo" : 0.001,
-    "testSetSaldo2" : 0.001,
-    "overallTestSuiteExecution" : 1.384,
-    "testPrelievo_InsufficienteSaldo" : 0.035,
+    "testSetId" : 0.0,
+    "testGetSaldo" : 0.0,
+    "testSetSaldo2" : 0.0,
+    "overallTestSuiteExecution" : 0.646,
+    "testPrelievo_InsufficienteSaldo" : 0.014,
     "testSetSaldo" : 0.001,
-    "testPrelievo_SufficienteSaldo" : 0.001
+    "testPrelievo_SufficienteSaldo" : 0.0
   }
 }

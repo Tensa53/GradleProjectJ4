@@ -149,7 +149,8 @@ public class JaCoCoCoverageMatrix {
 
                             if (lineCoverage.getInstructionCounter().getCoveredCount() > 0) {
 //                                System.out.println("Covered line: " + line);
-                                coveredlines.append("L").append(line).append(";");
+                                coveredlines.append(line).append(";");
+//                                coveredlines.append("L").append(line).append(";");
                             } else {
 //                                System.out.println("Uncovered line: " + line);
                             }
