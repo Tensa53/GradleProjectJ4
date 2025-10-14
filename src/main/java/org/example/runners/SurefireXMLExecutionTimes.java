@@ -14,6 +14,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class SurefireXMLExecutionTimes {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
@@ -28,7 +29,7 @@ public class SurefireXMLExecutionTimes {
             }
         });
 
-        Map<String, Double> map = new HashMap<>();
+        TreeMap<String, Double> map = new TreeMap<>();
 
         for (File file : files) {
             Map<String, Double> map1 = new HashMap<>();

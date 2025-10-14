@@ -164,13 +164,13 @@ public class JaCoCoCoverageMatrix {
 
     private static void updateCoverageMatrixFile(String testName, ArrayList<String> coveredMethods) {
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Set<String>> coverageMatrix = new HashMap<>();
+        TreeMap<String, Set<String>> coverageMatrix = new TreeMap<>();
 
         // Read existing coverage-matrix.json if it exists
         File coverageFile = new File(COVERAGE_MATRIX_FILEPATH);
         if (coverageFile.exists()) {
             try {
-                coverageMatrix = objectMapper.readValue(coverageFile, new TypeReference<Map<String, Set<String>>>() {});
+                coverageMatrix = objectMapper.readValue(coverageFile, new TypeReference<TreeMap<String, Set<String>>>() {});
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("Failed to read coverage-matrix.json");

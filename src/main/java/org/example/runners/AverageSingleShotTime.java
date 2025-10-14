@@ -9,8 +9,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.TreeMap;
 
 public class AverageSingleShotTime {
     public static void main(String[] args) throws IOException {
@@ -95,5 +94,5 @@ public class AverageSingleShotTime {
         map.put(benchName.toString(), average);
     }
 
-    private  static Map<String, BigDecimal> map = new LinkedHashMap<>();
+    private  static TreeMap<String, BigDecimal> map = new TreeMap<>();
 }
