@@ -9,7 +9,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.*;
-
 import static org.example.runners.MethodSignatureRetriever.getMethodSignatureParsed;
 
 public class JaCoCoXMLUncoveredMethods {
@@ -48,9 +47,7 @@ public class JaCoCoXMLUncoveredMethods {
                         } else {
                             methodLine = Integer.parseInt(childNode.getAttributes().getNamedItem("line").getNodeValue()) - 1;
                         }
-//                    String signature = getMethodSignature(descriptor);
                         String signature = getMethodSignatureParsed(methodLine, className);
-//                    System.out.println("Signature for method " + methodName + ": " + signature);
                         String fullMethodName = "";
                         if (methodName.equals("<init>")) {
                             fullMethodName = classDottedName + classDottedName.substring(classDottedName.lastIndexOf(".")) + "(" + signature + ")";

@@ -91,7 +91,7 @@ tasks.register<JacocoReport>("jacocoExternalReport") {
         xml.required.set(true)
         html.required.set(true)
         csv.required.set(false)
-        xml.outputLocation.set(file("reports-coverage/jmh/jacoco/jacocoTestReport.xml"))
+        xml.outputLocation.set(file("reports-coverage/jmh/jacoco/jacoco.xml"))
         html.outputLocation.set(file("reports-coverage/jmh/jacoco/html"))
     }
 }

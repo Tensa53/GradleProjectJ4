@@ -47,9 +47,6 @@ public class SurefireXMLExecutionTimes {
             Double testSuiteExecutionTime = Double.valueOf(testsuite.getAttributes().getNamedItem("time").getNodeValue());
             String testSuiteName = testsuite.getAttributes().getNamedItem("name").getNodeValue();
             System.out.println("Test Suite Name: " + testSuiteName);
-            System.out.println("Test Suite Execution Time: " + testSuiteExecutionTime);
-//            map1.put("overallTestSuiteExecution", testSuiteExecutionTime);
-//            map.put(testSuiteName, map1);
 
             NodeList testCaseNodes = doc.getElementsByTagName("testcase");
 
@@ -57,7 +54,8 @@ public class SurefireXMLExecutionTimes {
                 Node node = testCaseNodes.item(i);
                 String testCaseName = node.getAttributes().getNamedItem("name").getNodeValue();
                 Double testCaseExecutionTime = Double.valueOf(node.getAttributes().getNamedItem("time").getNodeValue());
-                map.put(testSuiteName + "." + testCaseName, testCaseExecutionTime);
+                System.out.println("Test Case: " + testCaseName + " - Execution time: " + testCaseExecutionTime);
+                map.put(testSuiteName+"."+testCaseName, testCaseExecutionTime);
             }
         }
 

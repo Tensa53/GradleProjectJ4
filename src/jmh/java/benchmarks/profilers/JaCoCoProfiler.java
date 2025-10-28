@@ -21,10 +21,6 @@ public class JaCoCoProfiler implements InternalProfiler {
 
         if (type == IterationType.MEASUREMENT) {
             iterationCounter++;
-//            System.out.printf("Measurement iteration %d of %d%n", measureCounter, total);
-
-            // Example: dump coverage here
-            // CoverageUtils.dumpCoverage(benchParams.getBenchmark() + "_iter" + measureCounter);
         }
     }
 

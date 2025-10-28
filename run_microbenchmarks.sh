@@ -37,44 +37,10 @@ benchmarks=(
 # Path to JMH benchmarks
 JAR_PATH="build/libs/GradleProjectJ4-1.0-SNAPSHOT-jmh.jar"
 COMMON_ARGS="-f 10 -i 3000 -wi 0 -bm ss -tu ms"
+TIME_REPORT_JMH_DIR="reports-time/jmh/"
 
-#prepare_system() {
-  #echo ">>> Disabling Turbo Boost"
-  #echo 1 | sudo /usr/bin/tee /sys/devices/system/cpu/intel_pstate/no_turbo
-  #echo ">>> Disabling Hyper-Threading"
-  #for cpu in {0..7}; do echo 0 | sudo /usr/bin/tee /sys/devices/system/cpu/cpu$cpu/online; done
-  #echo ">>> Disabling ASLR"
-  #echo 0 | sudo /usr/bin/tee /proc/sys/kernel/randomize_va_space
-  #echo ">>> Stopping non-essential services"
-  #sudo /usr/bin/systemctl stop bluetooth.service
-  #sudo /usr/bin/systemctl stop cups.service
-  #sudo /usr/bin/systemctl stop cups-browsed.service
-  #sudo /usr/bin/systemctl stop fwupd.service
-  #sudo /usr/bin/systemctl stop ModemManager.service
-  #sudo /usr/bin/systemctl stop NetworkManager.service
-  #sudo /usr/bin/systemctl stop wpa_supplicant.service
-  #sudo /usr/bin/systemctl stop upower.service
-  #sudo /usr/bin/systemctl stop switcheroo-control.service
-#}
-
-#restore_system() {
-  #echo ">>> Re-enabling Hyper-Threading"
-  #for cpu in {0..7}; do echo 1 | sudo /usr/bin/tee /sys/devices/system/cpu/cpu$cpu/online; done
-  #echo ">>> Re-enabling Turbo Boost"
-  #echo 0 | sudo /usr/bin/tee /sys/devices/system/cpu/intel_pstate/no_turbo
-  #echo ">>> Re-enabling ASLR"
-  #echo 2 | sudo /usr/bin/tee /proc/sys/kernel/randomize_va_space
-  #echo ">>> Restarting services"
-  #sudo /usr/bin/systemctl start bluetooth.service
-  #sudo /usr/bin/systemctl start cups.service
-  #sudo /usr/bin/systemctl start cups-browsed.service
-  #sudo /usr/bin/systemctl start fwupd.service
-  #sudo /usr/bin/systemctl start ModemManager.service
-  #sudo /usr/bin/systemctl start NetworkManager.service
-  #sudo /usr/bin/systemctl start wpa_supplicant.service
-  #sudo /usr/bin/systemctl start upower.service
-  #sudo /usr/bin/systemctl start switcheroo-control.service
-#}
+# Create the subdirectory
+mkdir $TIME_REPORT_JMH_DIR
 
 # Random execution loop
 remaining_benchmarks=("${benchmarks[@]}")
@@ -98,13 +64,9 @@ for ((i = 0; i < total; i++)); do
   #output_dir="$class_name/$method_name"
   mkdir -p "$class_name"
 
-  #echo "  -> Execution $i: preparing the system"
-  #prepare_system
   echo "  -> Execution $i: running benchmark"
   nice -n -20 java -Xms8G -Xmx8G -jar "$JAR_PATH" "$bm"  $COMMON_ARGS -rff "$class_name/$method_name-benchmark-results.json" -rf json
 done
 
-#echo ">>> All benchmarks executed, restoring system"
 echo ">>> All benchmarks executed"
-#restore_system
 echo ">>> Finished."

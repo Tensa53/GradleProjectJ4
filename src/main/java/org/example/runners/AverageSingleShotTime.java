@@ -2,7 +2,6 @@ package org.example.runners;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -40,9 +39,6 @@ public class AverageSingleShotTime {
 
             }
         }
-
-//        System.out.println(map);
-//        System.out.println(map.size());
 
         ObjectMapper objectMapper2 = new ObjectMapper();
         objectMapper2.writerWithDefaultPrettyPrinter().writeValue(new FileWriter(outputPath), map);
